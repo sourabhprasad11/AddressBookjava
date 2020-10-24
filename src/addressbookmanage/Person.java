@@ -22,6 +22,31 @@ public Person(String firstname,String lastname,long phone, int zipcode,String ci
 	  this.state=state;
 
 }
+
+
+public String getFirstname() {
+	return firstname;
+}
+
+public String getLastname() {
+	return lastname;
+}
+
+public long getPhone() {
+	return phone;
+}
+
+public int getZipcode() {
+	return zipcode;
+}
+
+public String getCity() {
+	return city;
+}
+
+public String getState() {
+	return state;
+}
 	
 
 }
