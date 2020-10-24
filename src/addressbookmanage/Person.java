@@ -47,7 +47,13 @@ public String getCity() {
 public String getState() {
 	return state;
 }
-	
+
+
+@Override
+public String toString() {
+	return "Person [firstname=" + firstname + ", lastname=" + lastname + ", phone=" + phone + ", zipcode=" + zipcode
+			+ ", city=" + city + ", state=" + state + "]";
+}
 
 }
 
