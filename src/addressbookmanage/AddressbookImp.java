@@ -1,17 +1,33 @@
 package addressbookmanage;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
 import java.util.Scanner;
-import java.util.Iterator;
-
 
 public class AddressbookImp implements AddressBookinter {
 	ArrayList<Person> addressArrList= new ArrayList<>();
 
 	public void addPerson() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter the First-Name: ");
+		String firstname =input.nextLine();
 		
+		System.out.println("Enter the Last-Name: ");
+		String lastname =input.nextLine();
+		
+		System.out.println("Enter the Phone-Number: ");
+		long phone =input.nextLong();
+		
+		System.out.println("Enter the Zip-Code: ");
+		int zipcode =input.nextInt();
+		
+		System.out.println("Enter the City: ");
+		String city=input.next();
+		
+		System.out.println("Enter the State: ");
+		String state =input.next();
+				
+		Person person= new Person(firstname, lastname, phone, zipcode, city, state);
+		addressArrList.add(person);
+		System.out.println("Entries done Successfully");
 	}
 	
 	public void editPerson() {
@@ -35,6 +51,6 @@ public class AddressbookImp implements AddressBookinter {
 	
 	public void display() {
 		
-		}
+	}
 }
 
