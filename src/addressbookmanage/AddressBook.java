@@ -8,6 +8,7 @@ public class AddressBook {
 		int val=1;
 		while(val==1){
 			AddressbookmanageImp abmi=new AddressbookmanageImp();
+			System.out.println("***WELCOME TO THE ADDRESS BOOK***");
 			System.out.println("1. Create New AddressBook");
 			System.out.println("2. Open AddressBook");
 			System.out.println("3. Save AddressBook");

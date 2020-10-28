@@ -28,6 +28,7 @@ public class AddressbookImp implements AddressBookinter {
 		Person person= new Person(firstname, lastname, phone, zipcode, city, state);
 		addressArrList.add(person);
 		System.out.println("Entries done Successfully");
+		System.out.println();
 	}
 	
 	public void editPerson() {
@@ -50,7 +51,10 @@ public class AddressbookImp implements AddressBookinter {
 	}
 	
 	public void display() {
-		
+		for(Person person:addressArrList) {
+			System.out.println(person.toString());
+			System.out.println();
+		}
 	}
 }
 
