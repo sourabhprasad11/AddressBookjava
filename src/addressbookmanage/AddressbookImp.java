@@ -32,7 +32,56 @@ public class AddressbookImp implements AddressBookinter {
 	}
 	
 	public void editPerson() {
-		
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter the Phone-number for updating the details: ");
+		long phn= input.nextLong();
+		//Person person;
+		for(Person person: addressArrList) {
+		//	System.out.println();
+			
+			if(phn==person.phone){
+				System.out.println("1. FirstName");
+				System.out.println("2. LastName");
+				System.out.println("3. Zipcode");
+				System.out.println("4. City");
+				System.out.println("5. State");
+				System.out.println("Enter the choice from the above: ");
+				int choice=input.nextInt();
+				switch(choice) {
+				case 1:
+					System.out.println("Enter the new value for First-Name: ");
+					String first_name=input.next();
+					person.setFirstname(first_name);
+					break;
+				case 2:
+					System.out.println("Enter the new value for Last-Name: ");
+					String last_name=input.next();
+					person.setLastname(last_name);
+					break;
+				case 3:
+					System.out.println("Enter the new value for Zip-code: ");
+					int zip_code=input.nextInt();
+					person.setZipcode(zip_code);
+					break;
+				case 4:
+					System.out.println("Enter the new value for City: ");
+					String city_c=input.next();
+					person.setCity(city_c);
+					break;
+				case 5:
+					System.out.println("Enter the new value for State: ");
+					String state_s=input.next();
+					person.setState(state_s);
+					break;
+				default:
+					System.out.println("Value entered is wrong");
+					break;
+				}
+			}
+			else
+			{System.out.println("The Phone number is wrong");}
+			
+		}
 		
 	}
 	public void deletePerson() {
