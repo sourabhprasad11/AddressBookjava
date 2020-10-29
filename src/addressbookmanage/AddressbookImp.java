@@ -110,7 +110,11 @@ public class AddressbookImp implements AddressBookinter {
 	}
 	
 	public void sortbyZip() {
-	
+		Collections.sort(addressArrList, new Zipcomparator());
+		System.out.println("Sorted by Zip-code");
+		for(Person person: addressArrList) {
+			System.out.println(person.toString());
+		}
 	}
 	
 	public void searchPerson() {

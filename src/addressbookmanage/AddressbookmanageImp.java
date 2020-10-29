@@ -23,7 +23,7 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 			System.out.println("5. Sort By Zip-code");
 			System.out.println("6. Search the person ");
 			System.out.println("7. Display the list ");
-			System.out.println("8. Return to the main menu");
+			System.out.println("8. Quit");
 			System.out.println("Enter the choice: ");
 			int choice=input.nextInt();
 		switch(choice) {
