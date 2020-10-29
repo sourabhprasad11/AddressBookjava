@@ -1,5 +1,7 @@
 package addressbookmanage;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class AddressbookImp implements AddressBookinter {
@@ -99,6 +101,11 @@ public class AddressbookImp implements AddressBookinter {
 	}
 	
 	public void sortbyName() {
+		Collections.sort(addressArrList, new Namecomparator());
+		System.out.println("Sorted by Name");
+		for(Person person: addressArrList) {
+			System.out.println(person.toString());
+		}
 		
 	}
 	
