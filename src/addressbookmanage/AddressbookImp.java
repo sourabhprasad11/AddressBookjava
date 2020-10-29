@@ -35,10 +35,8 @@ public class AddressbookImp implements AddressBookinter {
 		Scanner input=new Scanner(System.in);
 		System.out.println("Enter the Phone-number for updating the details: ");
 		long phn= input.nextLong();
-		//Person person;
+		
 		for(Person person: addressArrList) {
-		//	System.out.println();
-			
 			if(phn==person.phone){
 				System.out.println("1. FirstName");
 				System.out.println("2. LastName");
@@ -78,15 +76,27 @@ public class AddressbookImp implements AddressBookinter {
 					break;
 				}
 			}
-			else
-			{System.out.println("The Phone number is wrong");}
 			
 		}
 		
 	}
 	public void deletePerson() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter the Phone Number of the person: ");
+		long phone= input.nextLong();
+		for(int i=0;i<addressArrList.size();i++){
+			long phn_num= addressArrList.get(i).phone;
+			if(phone==phn_num) {
+				addressArrList.remove(i);
+				System.out.println("Entry deleted successfully");
+			}else {
+				System.out.println("Phone number not found");
+			}
+		
+		}
+			
+		}
 	
-	}
 	public void sortbyName() {
 		
 	}
@@ -96,7 +106,15 @@ public class AddressbookImp implements AddressBookinter {
 	}
 	
 	public void searchPerson() {
-		
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter the Phone Number of the person: ");
+		String name= input.next();
+		for(Person person: addressArrList) {
+			if(name.equals(person.firstname)){
+				System.out.println(person.toString());
+				System.out.println();
+			}
+		}
 	}
 	
 	public void display() {
