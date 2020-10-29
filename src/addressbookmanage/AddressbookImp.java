@@ -89,13 +89,14 @@ public class AddressbookImp implements AddressBookinter {
 			if(phone==phn_num) {
 				addressArrList.remove(i);
 				System.out.println("Entry deleted successfully");
-			}else {
+			}
+			else {
 				System.out.println("Phone number not found");
 			}
 		
 		}
 			
-		}
+	}
 	
 	public void sortbyName() {
 		
