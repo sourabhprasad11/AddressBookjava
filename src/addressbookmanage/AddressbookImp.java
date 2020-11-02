@@ -155,7 +155,7 @@ public class AddressbookImp implements AddressBookinter {
 				System.out.println(filename);
 			}
 		}
-		System.out.println("Enter the file name: ");
+		System.out.println("Enter the file name, data to be saved in: ");
 		Scanner input =new Scanner(System.in);
 		String filename=input.nextLine();
 		
