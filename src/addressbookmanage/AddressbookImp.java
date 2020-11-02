@@ -158,28 +158,6 @@ public class AddressbookImp implements AddressBookinter {
 		System.out.println("Enter the file name, data to be saved in: ");
 		Scanner input =new Scanner(System.in);
 		String filename=input.nextLine();
-		
-		/*final String HEADER = "firstname,lastname,phone-num,zipcode,city,state";
-		File filecheck= new File("D:\\javaFiles\\"+filename+".csv");
-		if(filecheck.length()==0) {
-			System.out.println("File is empty");
-		FileWriter filewrite=null;
-		try {
-			filewrite= new FileWriter("D:\\javaFiles\\"+filename+".csv");
-			filewrite.append(HEADER);
-			filewrite.append("\n");
-			}catch(Exception e) {
-				System.out.println(e);
-			}finally {
-				try {
-					filewrite.flush();
-					filewrite.close();
-				}catch(Exception e) {
-					System.out.println(e);
-				}
-			}
-			
-		}*/
 
 		BufferedReader filereader=null;
 		try {
@@ -187,7 +165,6 @@ public class AddressbookImp implements AddressBookinter {
 			String line="";
 			
 			while ((line = filereader.readLine()) != null) {
-		        //String[] linearr = line.split(",");
 				for (Person cell : addressArrList) { 
 	                System.out.print(cell + "\t");
 	                System.out.println();
