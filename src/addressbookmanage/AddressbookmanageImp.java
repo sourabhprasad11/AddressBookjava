@@ -26,7 +26,31 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	}
 	
 	public void openAddressBook() {
-		
+		File file =new File("D:\\javaFiles");
+		String[] filenamesD=file.list();
+		if (filenamesD== null) {
+			System.out.println("File with the name does not exists");
+		}
+		else {
+			for(int i=0; i<filenamesD.length; i++ ) {
+				String filename=filenamesD[i];
+				System.out.println(filename);
+			}
+		}
+		System.out.println("Enter the File-name to be used: ");
+		Scanner ip =new Scanner(System.in);
+		String fileip= ip.nextLine();
+		String line="";
+		try {
+			BufferedReader br= new BufferedReader(new FileReader("D:\\javaFiles\\"+fileip+".csv"));
+			while((line =br.readLine())!= null) {
+				String[] s= line.split(",");
+				System.out.println("FirstName:"+s[0]+"\nLastName:"+s[1]+"\nPhone:"+s[2]+"\nZipCode:"+s[3]+"\nCity:"+s[4]+"\nState:"+s[5]);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+
 		int val=1;
 		while(val==1){
 			Scanner input =new Scanner(System.in);	
