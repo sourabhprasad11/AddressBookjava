@@ -141,6 +141,95 @@ public class AddressbookImp implements AddressBookinter {
 		}
 	}
 	
+	public void writeToFile() {
+		File file =new File("D:\\javaFiles");
+		String[] filenamesD=file.list();
+		if (filenamesD== null) {
+			System.out.println("File with the name does not exists");
+		}
+		else {
+			for(int i=0; i<filenamesD.length; i++ ) {
+				String filename=filenamesD[i];
+				System.out.println(filename);
+			}
+		}
+		System.out.println("Enter the file name: ");
+		Scanner input =new Scanner(System.in);
+		String filename=input.nextLine();
 		
+		final String HEADER = "firstname,lastname,phone-num,zipcode,city,state";
+		File filecheck= new File("D:\\javaFiles\\"+filename+".csv");
+		//if(filecheck.length()==0) {
+			//System.out.println("File is empty");
+		FileWriter filewrite=null;
+		try {
+			filewrite= new FileWriter("D:\\javaFiles\\"+filename+".csv");
+			filewrite.append(HEADER);
+			filewrite.append("\n");
+			}catch(Exception e) {
+				System.out.println(e);
+			}finally {
+				try {
+					filewrite.flush();
+					filewrite.close();
+				}catch(Exception e) {
+					System.out.println(e);
+				}
+			}
+			
+		//}
+
+		BufferedReader filereader=null;
+		try {
+			filereader = new BufferedReader(new FileReader("D:\\javaFiles\\"+filename+".csv"));
+			String line="";
+			
+			while ((line = filereader.readLine()) != null) {
+		        //String[] linearr = line.split(",");
+				for (Person cell : addressArrList) { 
+	                System.out.print(cell + "\t");
+	                System.out.println();
+				}
+			  }
+			}catch(Exception e) {
+				System.out.print(e);
+			}
+		try {
+			filereader.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		FileWriter file_writer=null;
+		try {		
+			file_writer= new FileWriter("D:\\javaFiles\\"+filename+".csv",true);
+			for (Person cell : addressArrList) { 
+				file_writer.append(cell.getFirstname());
+				file_writer.append(",");
+				file_writer.append(cell.getLastname());
+				file_writer.append(",");
+				file_writer.append(String.valueOf(cell.getPhone()));
+				file_writer.append(",");
+				file_writer.append(String.valueOf(cell.getZipcode()));
+				file_writer.append(",");
+				file_writer.append(cell.getCity());
+				file_writer.append(",");
+				file_writer.append(cell.getState());
+				file_writer.append(",");
+				file_writer.append("\n");
+			}
+							
+		}catch(Exception e){
+			System.out.println(e);			
+		}finally {
+			try {
+			file_writer.flush();	
+			file_writer.close();	
+				
+			}catch(Exception e) {
+				System.out.println(e);
+			}
+		}
+		
+	}	
 }
 
