@@ -19,7 +19,6 @@ public class AddressBook {
 		
 			Scanner ip=new Scanner(System.in);
 			int ans=ip.nextInt();
-			
 			switch(ans) {
 				case 1: 
 						abmi.newAddressBook();
@@ -37,11 +36,10 @@ public class AddressBook {
 						abmi.closeAddressBook();
 						break;
 				case 6: 
-					System.exit(0);
-					break;
+						System.exit(0);
+						break;
 			default:
 					System.out.println("You have entered the wrong number...Terminating the application");
-					// break;
 			}
 		}
 	}
