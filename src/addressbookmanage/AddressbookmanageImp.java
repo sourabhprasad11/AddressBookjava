@@ -122,6 +122,7 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	}
 	
 	public void closeAddressBook() {
+		System.out.println("Already closed the file");
 	
 	}
 	
