@@ -1,11 +1,16 @@
 package addressbookmanage;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
 public class AddressbookImp implements AddressBookinter {
-	ArrayList<Person> addressArrList= new ArrayList<>();
+	public static ArrayList<Person> addressArrList= new ArrayList<>();
 
 	public void addPerson() {
 		Scanner input=new Scanner(System.in);
@@ -119,7 +124,7 @@ public class AddressbookImp implements AddressBookinter {
 	
 	public void searchPerson() {
 		Scanner input=new Scanner(System.in);
-		System.out.println("Enter the Phone Number of the person: ");
+		System.out.println("Enter the First-Name of the person: ");
 		String name= input.next();
 		for(Person person: addressArrList) {
 			if(name.equals(person.firstname)){
@@ -135,5 +140,7 @@ public class AddressbookImp implements AddressBookinter {
 			System.out.println();
 		}
 	}
+	
+		
 }
 

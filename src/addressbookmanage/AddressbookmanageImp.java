@@ -1,6 +1,6 @@
 package addressbookmanage;
 import java.io.*;
-import java.io.FileOutputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,10 +8,25 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	AddressbookImp abi=new AddressbookImp();
 	
 	public void newAddressBook() {
+		System.out.println("Enter the name for the CSV-file: ");
+		Scanner input =new Scanner(System.in);
+		String filename=input.nextLine();
+		try {
+			File file= new File("D:\\javaFiles\\"+filename+".csv");
+			if(file.createNewFile()) {
+				System.out.println("AddressBook Created");
+			}
+			else {
+				System.out.println("AddressBook name already exists");
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
 			
 	}
 	
 	public void openAddressBook() {
+		
 		int val=1;
 		while(val==1){
 			Scanner input =new Scanner(System.in);	
@@ -50,7 +65,7 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 				break;
 			case 8:
 				System.out.println("quit");
-				System.exit(0);
+				val=0;
 				break;
 			default:
 				System.out.println("Error: Given the wrong input");
@@ -59,7 +74,7 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	}
 	
 	public void saveAddressBook() {
-	
+
 	}
 	
 	public void saveasAddressBook() {
