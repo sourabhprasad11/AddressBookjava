@@ -104,25 +104,13 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	
 	public void saveasAddressBook() {
 		abi.writeToFile();
-	/*	File file =new File("D:\\javaFiles");
-		String[] filenamesD=file.list();
-		if (filenamesD== null) {
-			System.out.println("File with the name does not exists");
-		}
-		else {
-			for(int i=0; i<filenamesD.length; i++ ) {
-				String filename=filenamesD[i];
-				System.out.println(filename);
-			}
-		}
-		*/
+	
 		System.out.println("SuccessFully saved the Data");
 		System.out.println("Enter the file-name to be renamed: ");
 		Scanner ip=new Scanner(System.in);
 		String fileoldname=ip.nextLine();
 		File fileold=new File("D:\\javaFiles\\"+fileoldname+".csv");
 		System.out.println("Enter the new-name of the file: ");
-		//Scanner input=new Scanner(System.in);
 		String filenewname=ip.nextLine();
 		File filenew=new File("D:\\javaFiles\\"+filenewname+".csv");
 		boolean b=fileold.renameTo(filenew);
