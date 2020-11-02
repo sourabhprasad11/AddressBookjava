@@ -1,9 +1,11 @@
 package addressbookmanage;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -157,10 +159,10 @@ public class AddressbookImp implements AddressBookinter {
 		Scanner input =new Scanner(System.in);
 		String filename=input.nextLine();
 		
-		final String HEADER = "firstname,lastname,phone-num,zipcode,city,state";
+		/*final String HEADER = "firstname,lastname,phone-num,zipcode,city,state";
 		File filecheck= new File("D:\\javaFiles\\"+filename+".csv");
-		//if(filecheck.length()==0) {
-			//System.out.println("File is empty");
+		if(filecheck.length()==0) {
+			System.out.println("File is empty");
 		FileWriter filewrite=null;
 		try {
 			filewrite= new FileWriter("D:\\javaFiles\\"+filename+".csv");
@@ -177,7 +179,7 @@ public class AddressbookImp implements AddressBookinter {
 				}
 			}
 			
-		//}
+		}*/
 
 		BufferedReader filereader=null;
 		try {
@@ -200,31 +202,38 @@ public class AddressbookImp implements AddressBookinter {
 			e1.printStackTrace();
 		}
 		FileWriter file_writer=null;
+		BufferedWriter filebuffer=null;
+		PrintWriter fileprinter=null;
 		try {		
 			file_writer= new FileWriter("D:\\javaFiles\\"+filename+".csv",true);
+			filebuffer=new BufferedWriter(file_writer);
+			fileprinter=new PrintWriter(filebuffer);
 			for (Person cell : addressArrList) { 
-				file_writer.append(cell.getFirstname());
-				file_writer.append(",");
-				file_writer.append(cell.getLastname());
-				file_writer.append(",");
-				file_writer.append(String.valueOf(cell.getPhone()));
-				file_writer.append(",");
-				file_writer.append(String.valueOf(cell.getZipcode()));
-				file_writer.append(",");
-				file_writer.append(cell.getCity());
-				file_writer.append(",");
-				file_writer.append(cell.getState());
-				file_writer.append(",");
-				file_writer.append("\n");
+				fileprinter.print(cell.getFirstname());
+				fileprinter.print(",");
+				fileprinter.print(cell.getLastname());
+				fileprinter.print(",");
+				fileprinter.print(cell.getPhone());
+				fileprinter.print(",");
+				fileprinter.print(cell.getZipcode());
+				fileprinter.print(",");
+				fileprinter.print(cell.getCity());
+				fileprinter.print(",");
+				fileprinter.print(cell.getState());
+				fileprinter.print(",");
+				fileprinter.println();
 			}
 							
 		}catch(Exception e){
 			System.out.println(e);			
 		}finally {
 			try {
-			file_writer.flush();	
-			file_writer.close();	
-				
+			file_writer.flush();
+			filebuffer.flush();
+			fileprinter.flush();
+			file_writer.close();
+			filebuffer.close();
+			fileprinter.close();
 			}catch(Exception e) {
 				System.out.println(e);
 			}
