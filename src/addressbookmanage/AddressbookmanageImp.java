@@ -98,6 +98,7 @@ public class AddressbookmanageImp implements AddressBookManagerinter {
 	}
 	
 	public void saveAddressBook() {
+		abi.writeToFile();		
 
 	}
 	
